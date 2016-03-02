@@ -11,14 +11,13 @@ export class User extends Record({
     email: "",
     first_name: "",
     last_login: "",
-    last_name: "",
-    location: ""
+    last_name: ""
 }) {
     appUrl() {
         return `/admin/users/${this.id}`;
     }
 
-    tabUrl(tab = "procedures") {
+    tabUrl(tab = "record") {
         return `${this.appUrl()}/${tab}`;
     }
 
