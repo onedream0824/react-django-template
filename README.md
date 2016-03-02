@@ -18,3 +18,6 @@ comprised of a few different projects:
 
 ## TODO
 1. Build out the create/update/delete for the Users app
+
+## Screenshot
+![screenshot](https://github.com/scottwoodall/django-react-template/blob/master/screenshot.png)
