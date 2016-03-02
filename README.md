@@ -15,3 +15,6 @@ comprised of a few different projects:
 1. `cd {{ project_name }}`
 1. Follow `README.md` in `./backend`
 1. Follow `README.md` in `./frontend`
+
+# TODO
+1. Build out the create/update/delete for the Users app
