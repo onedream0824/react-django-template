@@ -1,4 +1,11 @@
-## Prereqs
+# Django Application Server
+
+## Primary Modules
+1. [django](https://www.djangoproject.com/)
+1. [django rest framework](http://www.django-rest-framework.org/)
+1. [custom user](https://github.com/jcugat/django-custom-user)
+
+## Prerequisites
 1. Postgres
 1. Python
 
