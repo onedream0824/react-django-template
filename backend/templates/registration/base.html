@@ -5,16 +5,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | Starter</title>
+        <title>Django & React Starter</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
-        <link rel="stylesheet" href="{% static "fontawesome/css/font-awesome.css" %}">
-        <link rel="stylesheet" href="{% static "adminlte/css/AdminLTE.css" %}">
-        <link rel="stylesheet" href="{% static "adminlte/css/skins/skin-green.css" %}">
+        <link rel="stylesheet" href="{% static "stylesheets.css" %}">
 
         <!--[if lt IE 9]>
-        <script src="{% static "plugins/html5shiv/html5shiv.min.js" %}"></script>
-        <script src="{% static "plugins/respond/respond.min.js" %}"></script>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
     {% endblock head %}
@@ -42,12 +39,6 @@
             {% endblock footer %}
         </div>
         {% endblock wrapper %}
-
-        <script src="{% static "plugins/jQuery/jquery-2.1.4.js" %}"></script>
-        <script src="{% static "plugins/nprogress/nprogress.js" %}"></script>
-        <script src="{% static "plugins/pjax/jquery.pjax.js" %}"></script>
-        <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
-        <script src="{% static "adminlte/js/app.min.js" %}"></script>
     </body>
     {% endblock body %}
 </html>

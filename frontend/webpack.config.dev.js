@@ -1,5 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 module.exports = {
     devtool: "cheap-module-eval-source-map",
@@ -17,16 +19,39 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "build"),
-        filename: "bundle.js",
+        filename: "js/bundle.js",
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
+        new webpack.optimize.CommonsChunkPlugin("vendor", "js/vendor.bundle.js"),
+        new ExtractTextPlugin("stylesheets.css"),
         new webpack.NoErrorsPlugin()
     ],
     module: {
         loaders: [
-            {test: /\.js$/, loaders: ["babel"], include: path.join(__dirname, "src")},
-            {test: require.resolve("immutable"), loader: "expose?immutable"}
+            {
+                test: /\.js$/,
+                loaders: ["babel"],
+                include: path.join(__dirname, "src")
+            },
+            {
+                // expose immutable globally so we can use it in app.html
+                test: require.resolve("immutable"),
+                loader: "expose?immutable"
+            },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract("css?sourceMap!less?sourceMap")
+            },
+            {
+                // move font files found within CSS to the build directory
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file?name=[path][name].[ext]?[hash]&context=./node_modules"
+            },
+            {
+                // move images found within CSS to the build directory
+                test: /\.(jpg|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file?name=[path][name].[ext]?[hash]&context=./node_modules"
+            }
         ]
     }
 };
