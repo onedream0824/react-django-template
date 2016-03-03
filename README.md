@@ -1,5 +1,6 @@
-# A Django & React Template For Building Web Applications
-This is an opinionated template that will help bootstrap your next Django project.
+# A Django & React Template
+This is an opinionated template that will help bootstrap your next Django web
+application.
 
 ## Installation
 1. `mkvirtualenv {{ project_name }}`
