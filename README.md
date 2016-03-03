@@ -1,4 +1,4 @@
-# A Django Template For Building Web Applications
+# A Django & React Template For Building Web Applications
 This is an opinionated template that will help bootstrap your next Django project.
 
 ## Installation
@@ -6,8 +6,8 @@ This is an opinionated template that will help bootstrap your next Django projec
 1. `pip install django`
 1. `django-admin.py startproject --template=https://github.com/scottwoodall/django-react-template/archive/master.zip {{ project_name }}`
 1. `cd {{ project_name }}`
-1. Follow `README.md` in `./backend`
-1. Follow `README.md` in `./frontend`
+1. Follow `backend/README.md`
+1. Follow `frontend/README.md`
 
 ## TODO
 1. Build out the create/update/delete for the Users app
