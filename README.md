@@ -11,7 +11,7 @@ application.
 1. Follow `frontend/README.md`
 
 ## TODO
-1. Build out the create/update/delete for the Users app
+1. Build out the create/update for the Users app
 
 ## Screenshot
 ![screenshot](https://github.com/scottwoodall/django-react-template/blob/master/screenshot.png)

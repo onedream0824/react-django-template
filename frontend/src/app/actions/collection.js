@@ -26,12 +26,29 @@ function receivedRecord(record, data) {
     };
 }
 
+function removedRecord(record) {
+    const constants = record.get("constants");
+    return {
+        type: constants.REMOVED_RECORD,
+        record
+    };
+}
+
 export function fetchRecord(record) {
     return (dispatch) => {
         const successCb = (data) => dispatch(receivedRecord(record, data));
         const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
 
         return http.get(record.apiUrl, {}, successCb, errorCb);
+    };
+}
+
+export function deleteRecord({record}) {
+    return (dispatch) => {
+        const successCb = (data) => dispatch(removedRecord(record));
+        const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
+
+        return http.del(record.apiUrl, successCb, errorCb);
     };
 }
 
@@ -70,6 +87,7 @@ export function updateCollectionQuery({collection, query}) {
 }
 
 export default {
+    deleteRecord,
     fetchCollection,
     fetchCollectionIfEmpty,
     fetchRecord,
