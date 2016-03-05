@@ -21,10 +21,10 @@ class Record extends React.Component {
                 <dd><a href={`mailto:${record.email}`}>{record.email}</a></dd>
 
                 <dt className="text-muted">Date Joined</dt>
-                <dd>{moment(record.date_joined).format('dddd MMMM Do YYYY, h:mm A')}</dd>
+                <dd>{moment(record.date_joined).format('ddd. MMM. Do YYYY, h:mm A')}</dd>
 
                 <dt className="text-muted">Last Login</dt>
-                <dd>{moment(record.last_login).format('dddd MMMM Do YYYY, h:mm A')}</dd>
+                <dd>{moment(record.last_login).format('ddd. MMM. Do YYYY, h:mm A')}</dd>
             </dl>
         );
     }
