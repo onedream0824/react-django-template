@@ -2,7 +2,6 @@ import nprogress from "nprogress";
 import superagent from "superagent";
 
 
-// delete is a js reserved keyword
 function del(url, successCb, errorCb) {
     let request = superagent.del(url);
     request.set("Accept", "application/json");
@@ -37,7 +36,26 @@ function get(url, query = {}, successCb, errorCb) {
     });
 }
 
+function put(url, data={}, successCb, errorCb) {
+    const request = superagent.put(url);
+    request.set("Accept", "application/json");
+    request.set("X-CSRFToken", window.django.csrf);
+    request.send(data);
+    nprogress.start();
+
+    request.end((error, response) => {
+        nprogress.done();
+
+        if (error) {
+            errorCb(response.statusCode);
+        } else {
+            successCb(response.body);
+        }
+    });
+}
+
 export default {
     del,
-    get
+    get,
+    put
 };

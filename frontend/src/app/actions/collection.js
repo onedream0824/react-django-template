@@ -34,6 +34,15 @@ function removedRecord(record) {
     };
 }
 
+export function editRecord({record, fields}) {
+    return (dispatch) => {
+        const successCb = (data) => dispatch(receivedRecord(record, data));
+        const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
+
+        return http.put(record.apiUrl, fields, successCb, errorCb);
+    };
+}
+
 export function fetchRecord(record) {
     return (dispatch) => {
         const successCb = (data) => dispatch(receivedRecord(record, data));
@@ -88,6 +97,7 @@ export function updateCollectionQuery({collection, query}) {
 
 export default {
     deleteRecord,
+    editRecord,
     fetchCollection,
     fetchCollectionIfEmpty,
     fetchRecord,

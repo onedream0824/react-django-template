@@ -20,6 +20,7 @@
         <script src="{% static "js/vendor.bundle.js" %}"></script>
         <script>
         window.django = {
+            csrf: "{{ csrf_token }}",
             urls: {
                 staticRoot: "{% static "" %}",
                 users: "{% url "emailuser-list" %}"
