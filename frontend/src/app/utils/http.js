@@ -36,7 +36,7 @@ function get(url, query = {}, successCb, errorCb) {
     });
 }
 
-function put(url, data={}, successCb, errorCb) {
+function put(url, data = {}, successCb, errorCb) {
     const request = superagent.put(url);
     request.set("Accept", "application/json");
     request.set("X-CSRFToken", window.django.csrf);

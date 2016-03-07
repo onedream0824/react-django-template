@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 
 
-export default function UserPanel(props) {
+export default function UserPanel() {
     return (
         <div className="user-panel">
             <div className="pull-left image">

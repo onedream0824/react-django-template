@@ -54,7 +54,7 @@ export function fetchModel(model) {
 
 export function deleteModel({model}) {
     return (dispatch) => {
-        const successCb = (data) => dispatch(removedModel(model));
+        const successCb = () => dispatch(removedModel(model));
         const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
 
         return http.del(model.apiUrl, successCb, errorCb);

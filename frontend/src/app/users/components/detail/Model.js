@@ -21,10 +21,10 @@ class Model extends React.Component {
                 <dd><a href={`mailto:${model.email}`}>{model.email}</a></dd>
 
                 <dt className="text-muted">Date Joined</dt>
-                <dd>{moment(model.date_joined).format('ddd. MMM. Do YYYY, h:mm A')}</dd>
+                <dd>{moment(model.date_joined).format("ddd. MMM. Do YYYY, h:mm A")}</dd>
 
                 <dt className="text-muted">Last Login</dt>
-                <dd>{moment(model.last_login).format('ddd. MMM. Do YYYY, h:mm A')}</dd>
+                <dd>{moment(model.last_login).format("ddd. MMM. Do YYYY, h:mm A")}</dd>
             </dl>
         );
     }

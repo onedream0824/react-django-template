@@ -21,7 +21,9 @@
         "react/jsx-uses-vars": 2,
         "react/react-in-jsx-scope": 2,
         "semi": [2, "always"],
-        "new-cap": [2, {"capIsNewExceptions": ["List", "Map", "Record", "OrderedSet"]}],
+        "new-cap": [2, {
+            "capIsNewExceptions": ["List", "Map", "Record", "Set", "OrderedSet"]
+        }],
         "no-unused-vars": 2
     },
     "plugins": [

@@ -6,7 +6,7 @@ import {contentWrapperMinHeight} from "./selectors";
 
 class ContentWrapper extends React.Component {
     render() {
-        const {adminlte, children, contentWrapperMinHeight} = this.props;
+        const {children, contentWrapperMinHeight} = this.props;
 
         return (
             <div

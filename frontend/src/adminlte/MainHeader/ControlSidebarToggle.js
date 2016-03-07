@@ -3,7 +3,7 @@ import React from "react";
 
 export default class ControlSidebarToggle extends React.Component {
     render() {
-        const {actions, adminlte} = this.props;
+        const {actions} = this.props;
 
         return (
             <button

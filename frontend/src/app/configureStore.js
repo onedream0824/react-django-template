@@ -15,7 +15,7 @@ export default (initialState) => {
         initialState,
         applyMiddleware(
             thunkMiddleware,
-            //loggerMiddleware
+            loggerMiddleware
         )
     );
 };

@@ -42,7 +42,7 @@ class EditButton extends React.Component {
     }
 
     handleSubmit = (evnt) => {
-        const {actions, collection, model} = this.props;
+        const {actions, model} = this.props;
         const {fields} = this.state;
         evnt.preventDefault();
         actions.editModel({model, fields});

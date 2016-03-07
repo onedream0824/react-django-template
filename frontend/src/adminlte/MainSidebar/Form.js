@@ -1,8 +1,7 @@
-import React, {Component} from "react";
-import {Link} from "react-router";
+import React from "react";
 
 
-function SidebarForm(props) {
+function SidebarForm() {
     return (
         <form action="#" method="get" className="sidebar-form">
             <div className="input-group">

@@ -2,7 +2,7 @@ import {Set} from "immutable";
 import _ from "lodash";
 
 
-export default (query, excluded=Set(["search"])) => {
+export default (query, excluded = Set(["search"])) => {
     const strings = query.filter((value) => _.isString(value));
     const filterInputs = strings.filterNot((value, key) => excluded.has(key));
 
