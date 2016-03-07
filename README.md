@@ -1,6 +1,15 @@
 # A Django & React Template
-This is an opinionated template that will help bootstrap your next Django web
+A collection of Django and React modules that will help bootstrap your next Django web
 application.
+
+## Motivation
+Getting a new project up and running can be time consuming and demotivating when
+what you really want is to just work on your idea. It can take hours/days to get a
+project with boilerplate before you can get to any actual work.
+
+This goal of this project is to give you a strong project with just a few
+commands so you can begin writing your application from the start and not worry about
+boilerplate.
 
 ## Installation
 1. `mkvirtualenv {{ project_name }}`
