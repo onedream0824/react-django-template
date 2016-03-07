@@ -46,7 +46,7 @@ export function editModel({model, fields}) {
             (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
         ]);
 
-        return http.put(model.apiUrl, fields, success, error);
+        return http.put(model.apiUrl(), fields, success, error);
     };
 }
 
@@ -60,7 +60,7 @@ export function fetchModel(model) {
             (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
         ]);
 
-        return http.get(model.apiUrl, {}, success, error);
+        return http.get(model.apiUrl(), {}, success, error);
     };
 }
 
@@ -74,7 +74,7 @@ export function deleteModel({model}) {
             (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
         ]);
 
-        return http.del(model.apiUrl, success, error);
+        return http.del(model.apiUrl(), success, error);
     };
 }
 
