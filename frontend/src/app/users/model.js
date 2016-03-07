@@ -60,5 +60,5 @@ class Collection extends Record({
 
 export {
     Collection,
-    Model
+    User
 };
