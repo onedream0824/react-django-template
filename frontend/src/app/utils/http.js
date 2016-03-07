@@ -12,9 +12,9 @@ function del(url, successCb, errorCb) {
         nprogress.done();
 
         if (error) {
-            errorCb(response.statusCode);
+            errorCb.forEach((func) => func(response));
         } else {
-            successCb(response.body);
+            successCb.forEach((func) => func(response));
         }
     });
 }
@@ -29,9 +29,9 @@ function get(url, query = {}, successCb, errorCb) {
         nprogress.done();
 
         if (error) {
-            errorCb(response.statusCode);
+            errorCb.forEach((func) => func(response));
         } else {
-            successCb(response.body);
+            successCb.forEach((func) => func(response));
         }
     });
 }
@@ -47,9 +47,9 @@ function put(url, data = {}, successCb, errorCb) {
         nprogress.done();
 
         if (error) {
-            errorCb(response.statusCode);
+            errorCb.forEach((func) => func(response));
         } else {
-            successCb(response.body);
+            successCb.forEach((func) => func(response));
         }
     });
 }

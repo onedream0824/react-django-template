@@ -1,3 +1,5 @@
+import {List} from "immutable";
+
 import http from "app/utils/http";
 import {addHttpStatusCodeAlert} from "app/actions/alerts";
 
@@ -36,28 +38,43 @@ function removedModel(model) {
 
 export function editModel({model, fields}) {
     return (dispatch) => {
-        const successCb = (data) => dispatch(receivedModel(model, data));
-        const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
+        const success = List([
+            (response) => dispatch(receivedModel(model, response.body))
+        ]);
 
-        return http.put(model.apiUrl, fields, successCb, errorCb);
+        const error = List([
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
+        ]);
+
+        return http.put(model.apiUrl, fields, success, error);
     };
 }
 
 export function fetchModel(model) {
     return (dispatch) => {
-        const successCb = (data) => dispatch(receivedModel(model, data));
-        const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
+        const success = List([
+            (response) => dispatch(receivedModel(model, response.body))
+        ]);
 
-        return http.get(model.apiUrl, {}, successCb, errorCb);
+        const error = List([
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
+        ]);
+
+        return http.get(model.apiUrl, {}, success, error);
     };
 }
 
 export function deleteModel({model}) {
     return (dispatch) => {
-        const successCb = () => dispatch(removedModel(model));
-        const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
+        const success = List([
+            () => dispatch(removedModel(model))
+        ]);
 
-        return http.del(model.apiUrl, successCb, errorCb);
+        const error = List([
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
+        ]);
+
+        return http.del(model.apiUrl, success, error);
     };
 }
 
@@ -80,10 +97,15 @@ export function fetchCollection({collection, query}) {
 
         dispatch(collectionIsLoading(collection));
 
-        const successCb = (data) => dispatch(receivedCollection(collection, data));
-        const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
+        const success = List([
+            (response) => dispatch(receivedCollection(collection, response.body))
+        ]);
 
-        return http.get(collection.get("apiUrl"), query.toJS(), successCb, errorCb);
+        const error = List([
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
+        ]);
+
+        return http.get(collection.get("apiUrl"), query.toJS(), success, error);
     };
 }
 
