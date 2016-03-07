@@ -17,7 +17,7 @@ export class User extends Record({
         return `/admin/users/${this.id}`;
     }
 
-    tabUrl(tab = "record") {
+    tabUrl(tab = "model") {
         return `${this.appUrl()}/${tab}`;
     }
 
@@ -34,8 +34,8 @@ export class Collection extends Record({
     apiUrl: window.django.urls.users,
     constants,
     isLoading: false,
-    Record: User,
-    records: Map(),
+    Model: User,
+    models: Map(),
     pagination: Map({
         end_index: 0,
         page: 0,

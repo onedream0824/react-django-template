@@ -7,15 +7,15 @@ import actions from "app/actions/collection";
 import DeleteButton from "app/components/DeleteButton";
 import EditButton from "app/components/EditButton";
 import EditForm from "app/users/components/detail/EditForm";
-import findRecord from "app/components/higherOrder/findRecord";
-import Record from "app/users/components/detail/Record";
+import findModel from "app/components/higherOrder/findModel";
+import Model from "app/users/components/detail/Model";
 
 
 class Container extends React.Component {
     render() {
         return (
             <div>
-                <Record {...this.props}/>
+                <Model {...this.props}/>
                 <div className="text-center">
                     <DeleteButton
                         {...this.props}
@@ -45,4 +45,4 @@ const bindActions = (dispatch) => {
     return {actions: bindActionCreators(actions, dispatch)};
 };
 
-export default connect(selector, bindActions)(findRecord(Container));
+export default connect(selector, bindActions)(findModel(Container));

@@ -9,31 +9,31 @@ function reducer(state, action, constants) {
 
     case constants.RECEIVED_COLLECTION:
         return state.withMutations((collection) => {
-            const Record = collection.get("Record");
-            const records = _.map(action.records, (data) => new Record(data));
+            const Model = collection.get("Model");
+            const models = _.map(action.models, (data) => new Model(data));
 
-            collection.set("records", Map(_.indexBy(records, "id")));
+            collection.set("models", Map(_.indexBy(models, "id")));
             collection.set("isLoading", false);
             collection.set("pagination",  action.pagination);
         });
 
-    case constants.RECEIVED_RECORD:
-        const Record = state.get("Record");
-        const record = new Record(action.record);
-        const records = state.get("records");
+    case constants.RECEIVED_MODEL:
+        const Model = state.get("Model");
+        const model = new Model(action.model);
+        const models = state.get("models");
         // The above call to _.indexBy creates keys that are strings. If we don't
-        // call .toString() here our key is an integer and a duplicate record
+        // call .toString() here our key is an integer and a duplicate model
         // gets added to the Map.
-        return state.set("records", records.set(record.id.toString(), record));
+        return state.set("models", models.set(model.id.toString(), model));
 
-    case constants.REMOVED_RECORD:
+    case constants.REMOVED_MODEL:
         return state.withMutations((collection) => {
-            const records = collection.get("records");
+            const models = collection.get("models");
             const pagination = collection.get("pagination");
-            const key = action.record.id.toString();
+            const key = action.model.id.toString();
 
             pagination.total_entries--;
-            collection.set("records", records.delete(key));
+            collection.set("models", models.delete(key));
         });
 
     case constants.UPDATE_COLLECTION_QUERY:

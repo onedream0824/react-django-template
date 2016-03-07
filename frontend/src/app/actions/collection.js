@@ -12,59 +12,59 @@ function collectionIsLoading(collection) {
 function receivedCollection(collection, data) {
     const constants = collection.get("constants");
     return {
-        records: data.records,
+        models: data.models,
         pagination: data.pagination,
         type: constants.RECEIVED_COLLECTION
     };
 }
 
-function receivedRecord(record, data) {
-    const constants = record.get("constants");
+function receivedModel(model, data) {
+    const constants = model.get("constants");
     return {
-        record: data,
-        type: constants.RECEIVED_RECORD
+        model: data,
+        type: constants.RECEIVED_MODEL
     };
 }
 
-function removedRecord(record) {
-    const constants = record.get("constants");
+function removedModel(model) {
+    const constants = model.get("constants");
     return {
-        type: constants.REMOVED_RECORD,
-        record
+        type: constants.REMOVED_MODEL,
+        model
     };
 }
 
-export function editRecord({record, fields}) {
+export function editModel({model, fields}) {
     return (dispatch) => {
-        const successCb = (data) => dispatch(receivedRecord(record, data));
+        const successCb = (data) => dispatch(receivedModel(model, data));
         const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
 
-        return http.put(record.apiUrl, fields, successCb, errorCb);
+        return http.put(model.apiUrl, fields, successCb, errorCb);
     };
 }
 
-export function fetchRecord(record) {
+export function fetchModel(model) {
     return (dispatch) => {
-        const successCb = (data) => dispatch(receivedRecord(record, data));
+        const successCb = (data) => dispatch(receivedModel(model, data));
         const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
 
-        return http.get(record.apiUrl, {}, successCb, errorCb);
+        return http.get(model.apiUrl, {}, successCb, errorCb);
     };
 }
 
-export function deleteRecord({record}) {
+export function deleteModel({model}) {
     return (dispatch) => {
-        const successCb = (data) => dispatch(removedRecord(record));
+        const successCb = (data) => dispatch(removedModel(model));
         const errorCb = (statusCode) => dispatch(addHttpStatusCodeAlert(statusCode));
 
-        return http.del(record.apiUrl, successCb, errorCb);
+        return http.del(model.apiUrl, successCb, errorCb);
     };
 }
 
 export function fetchCollectionIfEmpty({collection, query}) {
     return (dispatch) => {
-        const records = collection.get("records");
-        if (records.size === 0) {
+        const models = collection.get("models");
+        if (models.size === 0) {
             return dispatch(fetchCollection({collection, query}));
         }
     };
@@ -96,10 +96,10 @@ export function updateCollectionQuery({collection, query}) {
 }
 
 export default {
-    deleteRecord,
-    editRecord,
+    deleteModel,
+    editModel,
     fetchCollection,
     fetchCollectionIfEmpty,
-    fetchRecord,
+    fetchModel,
     updateCollectionQuery
 };

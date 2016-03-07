@@ -8,20 +8,20 @@ export default class LinkedListGroup extends React.Component {
 
         return (
             <div className="list-group" style={{opacity: collection.isLoading ? 0.5 : 1}}>
-                {collection.records.toList().map((record, key) =>
+                {collection.models.toList().map((model, key) =>
                 <Link
                     activeClassName="active"
                     className="list-group-item"
                     key={key}
-                    to={record.appUrl()}
+                    to={model.appUrl()}
                 >
-                    {record.toString}
+                    {model.toString}
                     <span className="pull-right">
                         <i className="fa fa-fw fa-angle-right"/>
                     </span>
                 </Link>
                 )}
-                {collection.records.size === 0
+                {collection.models.size === 0
                     && <div className="list-group-item">No items found.</div>}
             </div>
         );

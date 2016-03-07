@@ -17,9 +17,9 @@ class DeleteButton extends React.Component {
     }
 
     handleDelete = () => {
-        const {actions, collection, record} = this.props;
+        const {actions, collection, model} = this.props;
         const {router} = this.context;
-        actions.deleteRecord({record});
+        actions.deleteModel({model});
         router.push(collection.appUrl());
     }
 

@@ -5,7 +5,7 @@ import {createSelector} from "reselect";
 import {Tab, Tabs} from "react-bootstrap";
 
 import actions from "app/actions/collection";
-import findRecord from "app/components/higherOrder/findRecord";
+import findModel from "app/components/higherOrder/findModel";
 
 
 class Container extends React.Component {
@@ -21,23 +21,23 @@ class Container extends React.Component {
             (props.params.user !== nextProps.params.user) &&
             (props.children.props.route.path !== nextProps.children.props.route.path)
         ) {
-            const {record} = nextProps;
+            const {model} = nextProps;
             const {router} = this.context;
             const activeKey = nextProps.children.props.route.path;
-            router.push(record.tabUrl(activeKey));
+            router.push(model.tabUrl(activeKey));
             this.setState({activeKey});
         }
     }
 
     handleSelect = (activeKey) => {
-        const {record} = this.props;
+        const {model} = this.props;
         const {router} = this.context;
-        router.push(record.tabUrl(activeKey));
+        router.push(model.tabUrl(activeKey));
         this.setState({activeKey});
     };
 
     render() {
-        const {children, record} = this.props;
+        const {children, model} = this.props;
         const {activeKey} = this.state;
 
         return (
@@ -50,14 +50,14 @@ class Container extends React.Component {
                 <Tab
                     disabled={true}
                     tabClassName="pull-left header"
-                    title={record.toString}
+                    title={model.toString}
                 />
                 <Tab
-                    eventKey="record"
+                    eventKey="details"
                     tabClassName="pull-right"
                     title="Details"
                 >
-                    {activeKey === "record" && children}
+                    {activeKey === "details" && children}
                 </Tab>
             </Tabs>
         );
@@ -81,4 +81,4 @@ const bindActions = (dispatch) => {
     return {actions: bindActionCreators(actions, dispatch)};
 };
 
-export default connect(selector, bindActions)(findRecord(Container));
+export default connect(selector, bindActions)(findModel(Container));

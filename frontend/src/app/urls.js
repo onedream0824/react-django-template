@@ -3,7 +3,7 @@ import {IndexRedirect, Route} from "react-router";
 
 import Admin from "app/layouts/Admin";
 import RouteNotFound from "app/components/RouteNotFound";
-import users from "app/users/routes";
+import users from "app/users/urls";
 
 
 export default (

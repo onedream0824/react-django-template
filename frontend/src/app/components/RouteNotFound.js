@@ -1,5 +1,7 @@
 import React from "react";
 
+import history from "app/history";
+
 
 class RouteNotFound extends React.Component {
     render() {
@@ -12,6 +14,13 @@ class RouteNotFound extends React.Component {
                     <p className="text-center">
                         We could not find the page you were looking for.
                     </p>
+
+                    <a
+                        className="btn btn-default cursor-pointer"
+                        onClick={history.goBack}
+                    >
+                        Go Back
+                    </a>
                 </div>
             </div>
         );

@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {createSelector} from "reselect";
 
 import actions from "app/actions/collection";
-import Container from "app/components/master/Container";
-import FilterForm from "app/users/components/master/FilterForm";
+import Container from "app/components/list/Container";
+import FilterForm from "app/users/components/list/FilterForm";
 
 
 const selector = createSelector(

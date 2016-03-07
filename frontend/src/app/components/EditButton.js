@@ -5,19 +5,19 @@ import {Button, Modal} from "react-bootstrap";
 class EditButton extends React.Component {
     constructor(props) {
         super(props);
-        const {record} = props;
+        const {model} = props;
 
         this.state = {
             show: false,
-            fields: record.toJS()
+            fields: model.toJS()
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        const {record} = this.props;
+        const {model} = this.props;
 
-        if (record.id !== nextProps.record.id) {
-            this.setState({fields: nextProps.record.toJS()});
+        if (model.id !== nextProps.model.id) {
+            this.setState({fields: nextProps.model.toJS()});
         }
     }
 
@@ -30,8 +30,8 @@ class EditButton extends React.Component {
     }
 
     handleCancel = () => {
-        const {record} = this.props;
-        this.setState({fields: record.toJS()});
+        const {model} = this.props;
+        this.setState({fields: model.toJS()});
         this.hideModal();
     }
 
@@ -42,10 +42,10 @@ class EditButton extends React.Component {
     }
 
     handleSubmit = (evnt) => {
-        const {actions, collection, record} = this.props;
+        const {actions, collection, model} = this.props;
         const {fields} = this.state;
         evnt.preventDefault();
-        actions.editRecord({record, fields});
+        actions.editModel({model, fields});
         this.hideModal();
     }
 
@@ -53,7 +53,7 @@ class EditButton extends React.Component {
         const {permission} = this.props;
 
         if (window.django.user.permissions.has(permission)) {
-            const {EditForm, record} = this.props;
+            const {EditForm, model} = this.props;
             const {fields} = this.state;
 
             return(
@@ -65,7 +65,7 @@ class EditButton extends React.Component {
                         onHide={this.hideModal}
                     >
                         <Modal.Header closeButton>
-                            <Modal.Title>Edit {record.toString}</Modal.Title>
+                            <Modal.Title>Edit {model.toString}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <EditForm

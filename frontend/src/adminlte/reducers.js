@@ -1,7 +1,7 @@
 import immutable from "immutable";
 
 import constants from "./constants";
-import {AdminLTE} from "./records";
+import {AdminLTE} from "./model";
 
 const adminlte = new AdminLTE();
 

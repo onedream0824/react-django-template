@@ -29,5 +29,5 @@ class StandardPagination(pagination.PageNumberPagination):
                 'total_pages': self.page.paginator.num_pages,
                 'page': self.page.number,
             },
-            'records': data,
+            'models': data,
         })

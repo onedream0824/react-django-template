@@ -7,7 +7,7 @@ export default class PaginationInfo extends React.Component {
 
         return (
             <span>
-                Showing {collection.pagination.start_index} to {collection.records.size} of {collection.pagination.total_entries} entries
+                Showing {collection.pagination.start_index} to {collection.models.size} of {collection.pagination.total_entries} entries
             </span>
         );
     }
