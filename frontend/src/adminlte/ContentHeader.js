@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class ContentHeader extends React.Component {
+class ContentHeader extends React.Component {
     render() {
         const {children} = this.props;
 
@@ -12,3 +12,5 @@ export default class ContentHeader extends React.Component {
         );
     }
 }
+
+export default ContentHeader;

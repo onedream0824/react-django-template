@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class Body extends React.Component {
+class Body extends React.Component {
     render() {
         return (
             <div className="box-body">
@@ -10,3 +10,5 @@ export default class Body extends React.Component {
         );
     }
 }
+
+export default Body;

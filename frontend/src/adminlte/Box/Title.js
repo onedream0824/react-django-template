@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class HeaderTitle extends React.Component {
+class HeaderTitle extends React.Component {
     render() {
         const props = this.props;
 
@@ -10,3 +10,5 @@ export default class HeaderTitle extends React.Component {
         );
     }
 }
+
+export default HeaderTitle;

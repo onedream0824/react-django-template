@@ -3,7 +3,7 @@ import {AdminLTE} from "./model";
 
 const adminlte = new AdminLTE();
 
-export default function reducer(state = adminlte, action) {
+function reducer(state = adminlte, action) {
     switch (action.type) {
     case constants.CONTROL_SIDEBAR_TOGGLE:
         return state.setIn(
@@ -27,3 +27,5 @@ export default function reducer(state = adminlte, action) {
         return state;
     }
 }
+
+export default reducer;

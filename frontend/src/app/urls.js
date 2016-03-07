@@ -6,7 +6,7 @@ import RouteNotFound from "app/components/RouteNotFound";
 import users from "app/users/urls";
 
 
-export default (
+const urls = (
     <Route path="/">
         <IndexRedirect to="admin/users"/>
         <Route component={Admin} path="admin">
@@ -16,3 +16,5 @@ export default (
         </Route>
     </Route>
 );
+
+export default urls;

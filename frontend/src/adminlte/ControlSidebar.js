@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 
-export default class ControlSidebar extends React.Component {
+class ControlSidebar extends React.Component {
     render() {
         const {adminlte, children} = this.props;
         const className = classnames(adminlte.controlSidebar.get("classNames"));
@@ -20,3 +20,5 @@ export default class ControlSidebar extends React.Component {
         );
     }
 }
+
+export default ControlSidebar;

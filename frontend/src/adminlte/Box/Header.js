@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 
-export default class Header extends React.Component  {
+class Header extends React.Component  {
     render() {
         const props = this.props;
 
@@ -22,3 +22,5 @@ export default class Header extends React.Component  {
 Header.defaultProps = {
     withBorder: true
 };
+
+export default Header;

@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 import Box from "./Box";
 
 
-export default class Container extends React.Component {
+class Container extends React.Component {
     componentWillMount() {
         const {actions, collection} = this.props;
         const query = collection.get("query");
@@ -26,3 +26,5 @@ export default class Container extends React.Component {
         );
     }
 }
+
+export default Container;

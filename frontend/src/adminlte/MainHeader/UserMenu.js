@@ -6,6 +6,7 @@ class UserMenu extends React.Component {
     render() {
         const {actions, adminlte} = this.props;
         const userPanel = adminlte.getIn(["mainHeader", "userPanel"]);
+        const staticRoot = window.django.urls.staticRoot;
 
         const classes = classNames({
             "dropdown": true,
@@ -21,7 +22,7 @@ class UserMenu extends React.Component {
                     className="cursor-pointer dropdown-toggle"
                 >
                     <img
-                        src={`${window.django.urls.staticRoot}adminlte/img/user2-160x160.jpg`}
+                        src={`${staticRoot}adminlte/img/user2-160x160.jpg`}
                         className="user-image" alt="User Image"
                     />
                     <span className="hidden-xs">{window.django.user.full_name}</span>
@@ -29,7 +30,7 @@ class UserMenu extends React.Component {
 
                 <ul className="dropdown-menu">
                     <li className="user-header">
-                        <img src={`${window.django.urls.staticRoot}adminlte/img/user2-160x160.jpg`}
+                        <img src={`${staticRoot}adminlte/img/user2-160x160.jpg`}
                             className="img-circle" alt="User Image" />
 
                         <p>

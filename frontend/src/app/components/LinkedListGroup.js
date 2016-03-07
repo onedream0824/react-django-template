@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router";
 
 
-export default class LinkedListGroup extends React.Component {
+class LinkedListGroup extends React.Component {
     render() {
         const {collection} = this.props;
 
@@ -27,3 +27,5 @@ export default class LinkedListGroup extends React.Component {
         );
     }
 }
+
+export default LinkedListGroup;

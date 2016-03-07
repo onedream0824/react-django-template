@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class Wrapper extends React.Component {
+class Wrapper extends React.Component {
     render() {
         return (
             <div className="box">
@@ -10,3 +10,5 @@ export default class Wrapper extends React.Component {
         );
     }
 }
+
+export default Wrapper;

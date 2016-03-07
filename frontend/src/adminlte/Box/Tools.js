@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 
-export default class Tools extends React.Component {
+class Tools extends React.Component {
     render() {
         const props = this.props;
 
@@ -22,3 +22,5 @@ export default class Tools extends React.Component {
 Tools.defaultProps = {
     pullRight: true
 };
+
+export default Tools;

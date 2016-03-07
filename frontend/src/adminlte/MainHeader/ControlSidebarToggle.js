@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class ControlSidebarToggle extends React.Component {
+class ControlSidebarToggle extends React.Component {
     render() {
         const {actions} = this.props;
 
@@ -15,3 +15,5 @@ export default class ControlSidebarToggle extends React.Component {
         );
     }
 }
+
+export default ControlSidebarToggle;

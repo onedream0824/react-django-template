@@ -1,7 +1,7 @@
 import {List, Map, Record} from "immutable";
 
 
-export class AdminLTE extends Record({
+class AdminLTE extends Record({
     body: Map({
         classNames: List([
             "skin-purple",
@@ -29,3 +29,7 @@ export class AdminLTE extends Record({
         collapsed: document.body.classList.contains("sidebar-collapse")
     })
 }){}
+
+export {
+    AdminLTE
+};

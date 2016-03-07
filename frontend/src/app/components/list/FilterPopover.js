@@ -5,7 +5,7 @@ import {OverlayTrigger, Popover} from "react-bootstrap";
 import FilterPopoverTitle from "./FilterPopoverTitle";
 
 
-export default class Filters extends React.Component {
+class Filters extends React.Component {
     hidePopover = () => {
         const {refs: {popover}} = this;
         popover.hide();
@@ -50,3 +50,5 @@ export default class Filters extends React.Component {
         );
     }
 }
+
+export default Filters;

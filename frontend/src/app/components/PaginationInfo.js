@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class PaginationInfo extends React.Component {
+class PaginationInfo extends React.Component {
     render() {
         const {collection} = this.props;
 
@@ -12,3 +12,5 @@ export default class PaginationInfo extends React.Component {
         );
     }
 }
+
+export default PaginationInfo;

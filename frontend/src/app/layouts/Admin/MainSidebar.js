@@ -4,7 +4,7 @@ import {MainSidebar} from "adminlte";
 const {Menu, Wrapper} = MainSidebar;
 
 
-export default class LeftSidebar extends React.Component {
+class LeftSidebar extends React.Component {
     render() {
         return (
             <Wrapper>
@@ -13,3 +13,5 @@ export default class LeftSidebar extends React.Component {
         );
     }
 }
+
+export default LeftSidebar;

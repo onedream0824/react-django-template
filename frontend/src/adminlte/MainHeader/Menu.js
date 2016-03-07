@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class Menu extends React.Component {
+class Menu extends React.Component {
     render() {
         const {children} = this.props;
 
@@ -12,3 +12,5 @@ export default class Menu extends React.Component {
         );
     }
 }
+
+export default Menu;

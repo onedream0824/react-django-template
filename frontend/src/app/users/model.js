@@ -4,7 +4,7 @@ import isFilterActive from "app/utils/isFilterActive";
 import constants from "./constants";
 
 
-export class User extends Record({
+class User extends Record({
     id: "0",
     constants,
     date_joined: "",
@@ -30,7 +30,7 @@ export class User extends Record({
     }
 }
 
-export class Collection extends Record({
+class Collection extends Record({
     apiUrl: window.django.urls.users,
     constants,
     isLoading: false,
@@ -57,3 +57,8 @@ export class Collection extends Record({
         return isFilterActive(this.query);
     }
 }
+
+export {
+    Collection,
+    Model
+};

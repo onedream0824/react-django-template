@@ -14,7 +14,7 @@ const {
 } = MainHeader;
 
 
-export default class TopNavbar extends React.Component {
+class TopNavbar extends React.Component {
     render() {
         const {actions, adminlte} = this.props;
 
@@ -34,3 +34,5 @@ export default class TopNavbar extends React.Component {
         );
     }
 }
+
+export default TopNavbar;

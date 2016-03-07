@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class Logo extends React.Component {
+class Logo extends React.Component {
     render() {
         return (
             <a href="index2.html" className="logo">
@@ -11,3 +11,5 @@ export default class Logo extends React.Component {
         );
     }
 }
+
+export default Logo;

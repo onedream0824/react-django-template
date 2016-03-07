@@ -6,7 +6,7 @@ const adminlteSelector = (state, props) => {
     return props.adminlte;
 };
 
-export const contentWrapperMinHeight = createSelector(
+const contentWrapperMinHeight = createSelector(
     adminlteSelector,
     (adminlte) => {
         const dimensions = viewportDimensions();
@@ -22,3 +22,7 @@ export const contentWrapperMinHeight = createSelector(
         };
     }
 );
+
+export {
+    contentWrapperMinHeight
+};

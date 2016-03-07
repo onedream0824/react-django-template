@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class MainSidebarToggle extends React.Component {
+class MainSidebarToggle extends React.Component {
     render() {
         const {actions} = this.props;
 
@@ -12,3 +12,5 @@ export default class MainSidebarToggle extends React.Component {
         );
     }
 }
+
+export default MainSidebarToggle;
