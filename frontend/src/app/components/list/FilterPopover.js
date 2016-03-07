@@ -17,7 +17,7 @@ class Filters extends React.Component {
         const classNames = classnames({
             "btn": true,
             "btn-box-tool": true,
-            "btn-default": collection.isFilterActive
+            "btn-default": collection.isFilterActive()
         });
 
         return (

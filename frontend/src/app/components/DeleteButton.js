@@ -27,6 +27,8 @@ class DeleteButton extends React.Component {
         const {permission} = this.props;
 
         if (window.django.user.permissions.has(permission)) {
+            const {model} = this.props;
+
             return(
                 <a className="btn btn-app" onClick={this.showModal}>
                     <i className="fa fa-trash"></i> Delete
@@ -40,6 +42,7 @@ class DeleteButton extends React.Component {
                             <Modal.Title>Confirm Deletion</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
+                            Are you sure you want to delete {model.toString()}?
                             This action cannot be undone.
                         </Modal.Body>
                         <Modal.Footer>

@@ -21,11 +21,11 @@ class User extends Record({
         return `${this.appUrl()}/${tab}`;
     }
 
-    get apiUrl() {
+    apiUrl() {
         return `${window.django.urls.users}${this.id}/`;
     }
 
-    get toString() {
+    toString() {
         return `${this.first_name} ${this.last_name}`;
     }
 }
@@ -53,7 +53,7 @@ class Collection extends Record({
         return "/admin/users";
     }
 
-    get isFilterActive() {
+    isFilterActive() {
         return isFilterActive(this.query);
     }
 }

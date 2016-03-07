@@ -50,7 +50,7 @@ class Container extends React.Component {
                 <Tab
                     disabled={true}
                     tabClassName="pull-left header"
-                    title={model.toString}
+                    title={model.toString()}
                 />
                 <Tab
                     eventKey="details"

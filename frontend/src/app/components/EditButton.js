@@ -65,7 +65,7 @@ class EditButton extends React.Component {
                         onHide={this.hideModal}
                     >
                         <Modal.Header closeButton>
-                            <Modal.Title>Edit {model.toString}</Modal.Title>
+                            <Modal.Title>Edit {model.toString()}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <EditForm

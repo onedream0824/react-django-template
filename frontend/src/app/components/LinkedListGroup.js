@@ -15,7 +15,7 @@ class LinkedListGroup extends React.Component {
                     key={key}
                     to={model.appUrl()}
                 >
-                    {model.toString}
+                    {model.toString()}
                     <span className="pull-right">
                         <i className="fa fa-fw fa-angle-right"/>
                     </span>
