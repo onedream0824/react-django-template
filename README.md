@@ -4,8 +4,8 @@ application.
 
 ## Motivation
 Getting a new project up and running can be time consuming and demotivating when
-what you really want is to just work on your idea. It can take hours/days to get a
-project with boilerplate before you can get to any actual work.
+what you really want is to just work on your idea. It can take hours/days to get
+through all the boilerplate before you can get to any actual work.
 
 This goal of this project is to give you a strong project with just a few
 commands so you can begin writing your application from the start and not worry about
