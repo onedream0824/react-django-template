@@ -22,12 +22,12 @@ django-admin.py startproject --template=https://github.com/scottwoodall/django-r
 cd $project_name
 ```
 
-1. Follow `backend/README.md`
-1. Follow `frontend/README.md`
+1. Follow [backend/README.md](backend/README.md)
+1. Follow [frontend/README.md](frontend/README.md)
 
 ## TODO
 1. Build the create for the Users app
 1. Build production configs
 
 ## Screenshot
-![screenshot](https://github.com/scottwoodall/django-react-template/blob/master/screenshot.png)
+![screenshot](screenshot.png)
