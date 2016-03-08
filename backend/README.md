@@ -15,7 +15,5 @@ createdb $project_name
 python manage.py migrate
 python manage.py loadtestdata users.EmailUser:100
 python manage.py createsuperuser
+python manage.py runserver
 ```
-
-1. Update the `last_name` and `first_name` of your super user in the database.
-1. `python manage.py runserver`
