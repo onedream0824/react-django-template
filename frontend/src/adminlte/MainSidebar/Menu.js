@@ -5,8 +5,8 @@ import {Link} from "react-router";
 
 const allLinks = [
     {
-        permission: "users.view_user",
-        text: "All Users",
+        permission: "users.view_emailuser",
+        text: "Users",
         to: "/admin/users/",
         icon: "fa fa-users"
     }
