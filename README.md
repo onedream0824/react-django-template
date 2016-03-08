@@ -12,10 +12,11 @@ commands so you can begin writing your application from the start and not worry 
 boilerplate.
 
 ## Installation
-1. `mkvirtualenv {{ project_name }}`
+1. export project_name={{ project_name }}
+1. `mkvirtualenv $project_name
 1. `pip install django`
-1. `django-admin.py startproject --template=https://github.com/scottwoodall/django-react-template/archive/master.zip {{ project_name }}`
-1. `cd {{ project_name }}`
+1. `django-admin.py startproject --template=https://github.com/scottwoodall/django-react-template/archive/master.zip $project_name`
+1. `cd $project_name
 1. Follow `backend/README.md`
 1. Follow `frontend/README.md`
 
