@@ -36,45 +36,58 @@ function removedModel(model) {
     };
 }
 
-export function editModel({model, fields}) {
-    return (dispatch) => {
-        const success = List([
-            (response) => dispatch(receivedModel(model, response.body))
-        ]);
-
-        const error = List([
-            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
-        ]);
-
-        return http.put(model.apiUrl(), fields, success, error);
+export function editModel({model, changeSet}) {
+    const constants = model.get("constants");
+    return {
+        changeSet,
+        model,
+        type: constants.EDIT_MODEL
     };
 }
 
-export function fetchModel(model) {
+export function saveModel({model, successCb = List(), errorCb = List(), changeSet}) {
     return (dispatch) => {
-        const success = List([
+        successCb = successCb.concat(
             (response) => dispatch(receivedModel(model, response.body))
-        ]);
+        );
 
-        const error = List([
-            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
-        ]);
+        errorCb = errorCb.concat(
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode)),
+            (response) => {
+                const changeSet = model.changeSet.set("_errors", response.body);
+                dispatch(editModel({model, changeSet}));
+            }
+        );
 
-        return http.get(model.apiUrl(), {}, success, error);
+        return http.put(model.apiUrl(), changeSet.toJS(), successCb, errorCb);
     };
 }
 
-export function deleteModel({model}) {
+export function fetchModel({model, successCb = List(), errorCb = List()}) {
     return (dispatch) => {
-        const success = List([
+        successCb = successCb.concat(
+            (response) => dispatch(receivedModel(model, response.body))
+        );
+
+        errorCb = errorCb.concat(
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
+        );
+
+        return http.get(model.apiUrl(), {}, successCb, errorCb);
+    };
+}
+
+export function deleteModel({model, successCb = List(), errorCb = List()}) {
+    return (dispatch) => {
+        successCb = successCb.concat(
             () => dispatch(removedModel(model))
-        ]);
+        );
 
-        const error = List([
+        errorCb = errorCb.concat(
             (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
-        ]);
+        );
 
-        return http.del(model.apiUrl(), success, error);
+        return http.del(model.apiUrl(), successCb, errorCb);
     };
 }
 
@@ -87,7 +100,7 @@ export function fetchCollectionIfEmpty({collection, query}) {
     };
 }
 
-export function fetchCollection({collection, query}) {
+export function fetchCollection({collection, query, successCb = List(), errorCb = List()}) {
     return (dispatch) => {
         const currentQuery = collection.get("query");
 
@@ -97,15 +110,15 @@ export function fetchCollection({collection, query}) {
 
         dispatch(collectionIsLoading(collection));
 
-        const success = List([
+        successCb = successCb.concat(
             (response) => dispatch(receivedCollection(collection, response.body))
-        ]);
+        );
 
-        const error = List([
+        errorCb.concat(
             (response) => dispatch(addHttpStatusCodeAlert(response.statusCode))
-        ]);
+        );
 
-        return http.get(collection.get("apiUrl"), query.toJS(), success, error);
+        return http.get(collection.get("apiUrl"), query.toJS(), successCb, errorCb);
     };
 }
 
@@ -123,5 +136,6 @@ export default {
     fetchCollection,
     fetchCollectionIfEmpty,
     fetchModel,
+    saveModel,
     updateCollectionQuery
 };

@@ -21,7 +21,6 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "custom_user",
     "django_extensions",
     "rest_framework",
 ]

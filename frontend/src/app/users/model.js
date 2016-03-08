@@ -4,9 +4,19 @@ import isFilterActive from "app/utils/isFilterActive";
 import constants from "./constants";
 
 
+class ChangeSet extends Record({
+    first_name: "",
+    last_name: "",
+    email: "",
+    _errors: Map()
+}){}
+
+
 class User extends Record({
     id: "0",
     constants,
+    changeSet: new ChangeSet(),
+    ChangeSet,
     date_joined: "",
     email: "",
     first_name: "",
@@ -17,7 +27,7 @@ class User extends Record({
         return `/admin/users/${this.id}`;
     }
 
-    tabUrl(tab = "model") {
+    tabUrl(tab = "details") {
         return `${this.appUrl()}/${tab}`;
     }
 

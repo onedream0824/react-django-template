@@ -1,24 +1,25 @@
 import React from "react";
+import {List} from "immutable";
 import {Button, Modal} from "react-bootstrap";
 
 
 class EditButton extends React.Component {
     constructor(props) {
         super(props);
-        const {model} = props;
-
-        this.state = {
-            show: false,
-            fields: model.toJS()
-        };
+        this.state = {show: false};
     }
 
-    componentWillReceiveProps(nextProps) {
-        const {model} = this.props;
+    handleChange = (evnt) => {
+        const {actions, model} = this.props;
+        const changeSet = model.changeSet.set(evnt.target.name, evnt.target.value); 
+        actions.editModel({model, changeSet});
+    }
 
-        if (model.id !== nextProps.model.id) {
-            this.setState({fields: nextProps.model.toJS()});
-        }
+    handleSubmit = (evnt) => {
+        const {actions, model} = this.props;
+        const successCb = List([() => this.hideModal()]);
+        evnt.preventDefault();
+        actions.saveModel({model, successCb, changeSet: model.changeSet});
     }
 
     showModal = () => {
@@ -29,32 +30,11 @@ class EditButton extends React.Component {
         this.setState({show: false});
     }
 
-    handleCancel = () => {
-        const {model} = this.props;
-        this.setState({fields: model.toJS()});
-        this.hideModal();
-    }
-
-    handleChange = (evnt) => {
-        let {fields} = this.state;
-        fields[evnt.target.name] = evnt.target.value;
-        this.setState({fields});
-    }
-
-    handleSubmit = (evnt) => {
-        const {actions, model} = this.props;
-        const {fields} = this.state;
-        evnt.preventDefault();
-        actions.editModel({model, fields});
-        this.hideModal();
-    }
-
     render() {
         const {permission} = this.props;
 
         if (window.django.user.permissions.has(permission)) {
             const {EditForm, model} = this.props;
-            const {fields} = this.state;
 
             return(
                 <a className="btn btn-app" onClick={this.showModal}>
@@ -69,15 +49,16 @@ class EditButton extends React.Component {
                         </Modal.Header>
                         <Modal.Body>
                             <EditForm
-                                handleChange={this.handleChange}
+                                {...this.props}
                                 handleSubmit={this.handleSubmit}
-                                fields={fields}
+                                handleChange={this.handleChange}
+                                hideModal={this.hideModal}
                             />
                         </Modal.Body>
                         <Modal.Footer>
                             <Button
                                 className="pull-left"
-                                onClick={this.handleCancel}>Cancel
+                                onClick={this.hideModal}>Cancel
                             </Button>
                             <Button onClick={this.handleSubmit}>Save</Button>
                         </Modal.Footer>

@@ -9,7 +9,7 @@ export default (Component) => class FindModel extends React.Component {
         if ( ! models.has(id)) {
             const {actions} = this.props;
             const Model = collection.get("Model");
-            actions.fetchModel(new Model({id}));
+            actions.fetchModel({model: new Model({id})});
         }
     }
 
