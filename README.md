@@ -13,8 +13,9 @@ boilerplate.
 
 ## Installation
 
+1. `export project_name={{ project_name }}`
+
 ```
-export project_name={{ project_name }}
 mkvirtualenv $project_name
 pip install django
 django-admin.py startproject --template=https://github.com/scottwoodall/django-react-template/archive/master.zip $project_name
