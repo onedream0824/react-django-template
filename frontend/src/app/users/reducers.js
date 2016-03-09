@@ -1,6 +1,6 @@
 import collectionReducer from "app/reducers/collection";
 
-import {Collection} from "./model";
+import {Collection} from "./models";
 
 const initialState = new Collection();
 
