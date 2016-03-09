@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "Your Name",
   "version": "0.0.1",
-  "description": "",
+  "description": "A Django & React Template",
   "scripts": {
     "clean": "rimraf dist",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
@@ -9,8 +9,8 @@
     "start": "webpack -c --progress -w --config webpack.config.dev.js",
     "lint": "eslint src/"
   },
-  "author": "",
-  "license": "",
+  "author": "Your Name",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.6.0",
     "babel-eslint": "^5.0.0",
