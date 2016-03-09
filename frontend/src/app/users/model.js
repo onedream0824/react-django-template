@@ -15,7 +15,6 @@ class ChangeSet extends Record({
 class User extends Record({
     id: "0",
     constants,
-    changeSet: new ChangeSet(),
     ChangeSet,
     date_joined: "",
     email: "",
