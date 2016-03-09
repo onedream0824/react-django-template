@@ -25,6 +25,9 @@ class Model extends React.Component {
 
                 <dt className="text-muted">Last Login</dt>
                 <dd>{moment(model.last_login).format("ddd. MMM. Do YYYY, h:mm A")}</dd>
+
+                <dt className="text-muted">Last Updated</dt>
+                <dd>{moment(model.last_updated).format("ddd. MMM. Do YYYY, h:mm:s A")}</dd>
             </dl>
         );
     }

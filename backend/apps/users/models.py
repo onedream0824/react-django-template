@@ -67,6 +67,7 @@ class EmailUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
+    last_updated = models.DateTimeField(auto_now=True)
     objects = EmailUserManager()
 
     USERNAME_FIELD = 'email'

@@ -20,7 +20,8 @@ class User extends Record({
     email: "",
     first_name: "",
     last_login: "",
-    last_name: ""
+    last_name: "",
+    last_updated: ""
 }) {
     appUrl() {
         return `/admin/users/${this.id}`;
