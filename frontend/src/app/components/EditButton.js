@@ -1,5 +1,4 @@
 import React from "react";
-import {List} from "immutable";
 import {Button, Modal} from "react-bootstrap";
 
 
@@ -7,19 +6,6 @@ class EditButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {show: false};
-    }
-
-    handleChange = (evnt) => {
-        const {actions, model} = this.props;
-        const changeSet = model.changeSet.set(evnt.target.name, evnt.target.value); 
-        actions.editModel({model, changeSet});
-    }
-
-    handleSubmit = (evnt) => {
-        const {actions, model} = this.props;
-        const successCb = List([() => this.hideModal()]);
-        evnt.preventDefault();
-        actions.saveModel({model, successCb, changeSet: model.changeSet});
     }
 
     showModal = () => {
@@ -50,8 +36,6 @@ class EditButton extends React.Component {
                         <Modal.Body>
                             <EditForm
                                 {...this.props}
-                                handleSubmit={this.handleSubmit}
-                                handleChange={this.handleChange}
                                 hideModal={this.hideModal}
                             />
                         </Modal.Body>

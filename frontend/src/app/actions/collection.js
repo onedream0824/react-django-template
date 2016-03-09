@@ -53,10 +53,6 @@ export function saveModel({model, successCb = List(), errorCb = List(), changeSe
 
         errorCb = errorCb.concat(
             (response) => dispatch(addHttpStatusCodeAlert(response.statusCode)),
-            (response) => {
-                const changeSet = model.changeSet.set("_errors", response.body);
-                dispatch(editModel({model, changeSet}));
-            }
         );
 
         return http.put(model.apiUrl(), changeSet.toJS(), successCb, errorCb);

@@ -6,7 +6,7 @@ import editForm from "app/components/higherOrder/editForm";
 
 class EditForm extends React.Component {
     render() {
-        const {model: {changeSet}, handleChange, handleSubmit} = this.props;
+        const {changeSet, handleChange, handleSubmit} = this.props;
 
         return (
             <form onSubmit={handleSubmit}>
