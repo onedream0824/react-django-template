@@ -1,14 +1,8 @@
 import React from "react";
 
+import EmptyComponent from "app/components/EmptyComponent";
 
-export default (options) => class HasPermission extends React.Component {
-    render() {
-        if (window.django.user.permissions[options.permission]) {
-            return (
-                <Component {...this.props}/>
-            );
-        } else {
-            return null;
-        }
-    }
+
+export default (Component, permission) => {
+    return window.django.user.permissions.has(permission) ? Component : EmptyComponent;
 };

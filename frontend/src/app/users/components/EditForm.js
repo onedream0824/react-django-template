@@ -2,6 +2,7 @@ import React from "react";
 import {Input} from "react-bootstrap";
 
 import editForm from "app/components/higherOrder/editForm";
+import hasPermission from "app/components/higherOrder/hasPermission";
 
 
 class EditForm extends React.Component {
@@ -48,4 +49,4 @@ class EditForm extends React.Component {
     }
 }
 
-export default editForm(EditForm, "users.change_emailuser");
+export default hasPermission(editForm(EditForm), "users.change_emailuser");
