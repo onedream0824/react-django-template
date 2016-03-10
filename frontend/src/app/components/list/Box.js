@@ -23,8 +23,8 @@ class MasterBox extends React.Component {
                     <LinkedListGroup {...this.props}/>
                     <div className="text-center">
                         <CreateForm {...this.props}/>
-                        <QueryForm {...this.props}/>
                         <RefreshButton {...this.props}/>
+                        <QueryForm {...this.props}/>
                     </div>
                     <Pagination {...this.props}/>
                 </Box.Body>
