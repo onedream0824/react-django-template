@@ -9,10 +9,20 @@ class SearchBox extends React.Component {
         this.state = {query: collection.get("query")};
     }
 
+    componentWillReceiveProps(nextProps) {
+        const {props} = this;
+        const query = nextProps.collection.get("query");
+
+        if(props.collection.get("query") !== query) {
+            console.log("search box new props");
+            this.setState({query});
+        }
+    }
+
     handleClear = () => {
         const {actions, collection, params} = this.props;
         const {router} = this.context;
-        let {query} = this.state;
+        let query = collection.get("query");
 
         query = query.withMutations((map) => {
             map.set("page", 1);

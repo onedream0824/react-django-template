@@ -7,9 +7,12 @@ export default (Component) => {
     class EditForm extends React.Component {
         constructor(props) {
             super(props);
+            const {model} = props;
+
             this.state = {
                 show: false,
-                saveSuccessful: false
+                saveSuccessful: false,
+                changeSet: new model.ChangeSet(model.toJS())
             };
         }
 

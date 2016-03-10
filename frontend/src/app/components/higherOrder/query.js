@@ -15,6 +15,16 @@ export default (Component) => {
             };
         }
 
+        componentWillReceiveProps(nextProps) {
+            const {props} = this;
+            const query = nextProps.collection.get("query");
+
+            if(props.collection.get("query") !== query) {
+                console.log("query box new props");
+                this.setState({query});
+            }
+        }
+
         showModal = () => {
             this.setState({show: true});
         }
@@ -32,18 +42,14 @@ export default (Component) => {
         handleClear = () => {
             const {actions, collection} = this.props;
             const {router} = this.context;
-            let {query} = this.state;
+            const successCb = List([() => this.hideModal()]);
+            let query = collection.get("query");
 
             query = query.withMutations((map) => {
                 map.clear();
+                map.set("search", query.get("search"));
                 map.set("page", 1);
-                map.set("search", "");
             });
-
-            const successCb = List([
-                () => this.hideModal(),
-                () => this.setState({query})
-            ]);
 
             actions.fetchCollection({collection, query, successCb});
             router.push(collection.appUrl());
