@@ -35,3 +35,9 @@
     border-style: solid;
     border-width: 1px;
 }
+
+.btn-app {
+    min-width: 70px;
+    padding: 10px 10px;
+    height: 55px;
+}

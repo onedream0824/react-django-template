@@ -12,13 +12,12 @@ class RefreshButton extends React.Component {
 
     render() {
         return (
-            <button
-                className="btn btn-box-tool"
+            <a className="btn btn-app"
                 onClick={this.handleClick}
                 title="Refresh your search"
             >
-                <i className="fa fa-fw fa-refresh"/>
-            </button>
+                <i className="fa fa-refresh"/> Refresh
+            </a>
         );
     }
 }

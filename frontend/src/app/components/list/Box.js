@@ -6,25 +6,25 @@ import Pagination from "app/components/Pagination";
 import RefreshButton from "app/components/RefreshButton";
 import SearchBox from "app/components/SearchBox";
 
-import FilterPopover from "./FilterPopover";
-
 
 class MasterBox extends React.Component {
     render() {
-        const {collection} = this.props;
+        const {collection, QueryForm} = this.props;
 
         return (
             <Box.Wrapper>
                 <Box.Header>
                     <Box.Title>{collection.title}</Box.Title>
                     <Box.Tools>
-                        <FilterPopover {...this.props}/>
-                        <RefreshButton {...this.props}/>
+                        <SearchBox {...this.props}/>
                     </Box.Tools>
                 </Box.Header>
                 <Box.Body>
-                    <SearchBox {...this.props}/>
                     <LinkedListGroup {...this.props}/>
+                    <div className="text-center">
+                        <QueryForm {...this.props}/>
+                        <RefreshButton {...this.props}/>
+                    </div>
                     <Pagination {...this.props}/>
                 </Box.Body>
             </Box.Wrapper>

@@ -1,12 +1,12 @@
 import React from "react";
 import {Input} from "react-bootstrap";
 
-import filterForm from "app/components/higherOrder/filterForm";
+import query from "app/components/higherOrder/query";
 
 
-class FilterForm extends React.Component {
+class Form extends React.Component {
     render() {
-        const {collection, handleChange, handleSubmit} = this.props;
+        const {handleChange, handleSubmit, query} = this.props;
 
         return (
             <form onSubmit={handleSubmit}>
@@ -17,7 +17,7 @@ class FilterForm extends React.Component {
                     onChange={handleChange}
                     name="first_name"
                     type="text"
-                    value={collection.query.get("first_name")}
+                    value={query.get("first_name")}
                 />
                 <Input
                     autoComplete="off"
@@ -25,7 +25,7 @@ class FilterForm extends React.Component {
                     onChange={handleChange}
                     name="last_name"
                     type="text"
-                    value={collection.query.get("last_name")}
+                    value={query.get("last_name")}
                 />
                 <input type="submit" className="hidden"/>
             </form>
@@ -33,4 +33,4 @@ class FilterForm extends React.Component {
     }
 }
 
-export default filterForm(FilterForm);
+export default query(Form);

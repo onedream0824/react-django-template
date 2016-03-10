@@ -1,6 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-import {Input} from "react-bootstrap";
 
 
 class SearchBox extends React.Component {
@@ -20,6 +19,7 @@ class SearchBox extends React.Component {
             map.set("search", "");
         });
 
+        this.setState({query});
         actions.fetchCollection({collection, query});
         router.push(collection.appUrl(params));
     };
@@ -42,7 +42,7 @@ class SearchBox extends React.Component {
     };
 
     render() {
-        const {autoFocus = false} = this.props;
+        const {autoFocus = false, width = "150px"} = this.props;
         const {query} = this.state;
         const search = query.get("search");
 
@@ -59,22 +59,26 @@ class SearchBox extends React.Component {
         });
 
         return (
-            <form style={{paddingBottom: "10px"}} onSubmit={this.handleSubmit}>
-                <div className="input-group">
-                    <Input
+            <form onSubmit={this.handleSubmit}>
+                <div
+                    className="input-group input-group-sm"
+                    style={{width}}
+                >
+                    <input
                         autoFocus={autoFocus}
+                        className="form-control pull-right"
+                        name="search"
                         onChange={this.handleChange}
+                        placeholder="Search"
                         type="text"
-                        className="form-control"
-                        placeholder="Search..."
                         value={search}
                     />
-                    <span className="input-group-btn">
+                    <div className="input-group-btn">
                         <button
                             className={submitButton}
                             type="submit"
                         >
-                            <i className="fa fa-fw fa-search"/>
+                            <i className="fa fa-search"/>
                         </button>
 
                         <button
@@ -82,9 +86,9 @@ class SearchBox extends React.Component {
                             className={clearButton}
                             type="button"
                         >
-                            <i className="fa fa-fw fa-times"/>
+                            <i className="fa fa-times"/>
                         </button>
-                    </span>
+                    </div>
                 </div>
             </form>
         );
