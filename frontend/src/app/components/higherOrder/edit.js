@@ -7,13 +7,20 @@ export default (Component) => {
     class EditForm extends React.Component {
         constructor(props) {
             super(props);
-            this.state = {show: false};
+            this.state = {
+                show: false,
+                saveSuccessful: false
+            };
         }
 
         componentWillReceiveProps(nextProps) {
             if (this.props.model.id !== nextProps.model.id) {
                 const {model} = nextProps;
-                this.setState({changeSet: new model.ChangeSet(model.toJS())});
+
+                this.setState({
+                    changeSet: new model.ChangeSet(model.toJS()),
+                    saveSuccessful: false
+                });
             }
         }
 
@@ -36,7 +43,12 @@ export default (Component) => {
         handleSubmit = (evnt) => {
             const {actions, model} = this.props;
             const {changeSet} = this.state;
-            const successCb = List([() => this.hideModal()]);
+
+            const successCb = List([
+                () => this.hideModal(),
+                () => this.setState({saveSuccessful: true})
+            ]);
+
             const errorCb = List([
                 (response) => this.setState({
                     changeSet: changeSet.set("_errors", response.body)
@@ -49,10 +61,15 @@ export default (Component) => {
 
         render() {
             const {model} = this.props;
-            const {changeSet} = this.state;
+            const {changeSet, saveSuccessful} = this.state;
 
             return(
                 <a className="btn btn-app" onClick={this.showModal}>
+                    {saveSuccessful &&
+                        <span className="badge bg-green">
+                            <i className="fa fa-check"/>
+                        </span>
+                    }
                     <i className="fa fa-edit"></i> Edit
                     <Modal
                         onHide={this.hideModal}
