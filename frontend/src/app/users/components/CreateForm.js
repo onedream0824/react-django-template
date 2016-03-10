@@ -1,34 +1,52 @@
 import React from "react";
 import {Input} from "react-bootstrap";
 
+import create from "app/components/higherOrder/create";
+import hasPermission from "app/components/higherOrder/hasPermission";
 
-class CreateForm extends React.Component {
+
+class Form extends React.Component {
     render() {
-        const {collection, handleChange, handleSubmit} = this.props;
+        const {changeSet, handleChange, handleSubmit} = this.props;
 
         return (
             <form onSubmit={handleSubmit}>
                 <Input
-                    autoComplete="off"
-                    autoFocus={true}
+                    bsStyle={changeSet._errors.first_name ? "error" : null}
+                    hasFeedback
+                    help={changeSet._errors.first_name}
                     label="First Name"
-                    onChange={handleChange}
                     name="first_name"
                     type="text"
-                    value={collection.query.get("first_name")}
+                    onChange={handleChange}
+                    value={changeSet.first_name}
+                    help={changeSet._errors.first_name}
+                />
+                <Input
+                    bsStyle={changeSet._errors.last_name ? "error" : null}
+                    hasFeedback
+                    help={changeSet._errors.last_name}
+                    label="Last Name"
+                    name="last_name"
+                    type="text"
+                    onChange={handleChange}
+                    value={changeSet.last_name}
                 />
                 <Input
                     autoComplete="off"
-                    label="Last Name"
+                    bsStyle={changeSet._errors.email ? "error" : null}
+                    hasFeedback
+                    help={changeSet._errors.email}
+                    label="Email"
+                    name="email"
                     onChange={handleChange}
-                    name="last_name"
-                    type="text"
-                    value={collection.query.get("last_name")}
+                    type="email"
+                    value={changeSet.email}
                 />
-                <input type="submit" className="hidden"/>
+                <button type="submit" className="hidden"/>
             </form>
         );
     }
 }
 
-export default CreateForm;
+export default hasPermission(create(Form), "users.add_emailuser");

@@ -54,8 +54,28 @@ function put(url, data = {}, successCb, errorCb) {
     });
 }
 
+function post(url, data = {}, successCb, errorCb) {
+    const request = superagent.post(url);
+    request.set("Accept", "application/json");
+    request.set("X-CSRFToken", window.django.csrf);
+    request.send(data);
+    nprogress.start();
+
+    request.end((error, response) => {
+        nprogress.done();
+
+        if (error) {
+            errorCb.forEach((func) => func(response));
+        } else {
+            successCb.forEach((func) => func(response));
+        }
+    });
+}
+
+
 export default {
     del,
     get,
+    post,
     put
 };

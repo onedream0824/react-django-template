@@ -43,6 +43,7 @@ class User extends Record({
 class Collection extends Record({
     apiUrl: window.django.urls.users,
     constants,
+    ChangeSet,
     isLoading: false,
     Model: User,
     models: Map(),
@@ -57,7 +58,8 @@ class Collection extends Record({
         search: ""
     }),
     routeId: "user",
-    title: "Users"
+    title: "Users",
+    titleSingular: "User"
 }){
     appUrl() {
         return "/admin/users";

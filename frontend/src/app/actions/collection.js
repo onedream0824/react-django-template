@@ -59,6 +59,22 @@ export function saveModel({model, successCb = List(), errorCb = List(), changeSe
     };
 }
 
+export function createModel({collection, successCb = List(), errorCb = List(), changeSet}) {
+    return (dispatch) => {
+        successCb = successCb.concat(
+            (response) => {
+                dispatch(receivedModel(collection, response.body));
+            }
+        );
+
+        errorCb = errorCb.concat(
+            (response) => dispatch(addHttpStatusCodeAlert(response.statusCode)),
+        );
+
+        return http.post(collection.apiUrl, changeSet.toJS(), successCb, errorCb);
+    };
+}
+
 export function fetchModel({model, successCb = List(), errorCb = List()}) {
     return (dispatch) => {
         successCb = successCb.concat(
@@ -127,6 +143,7 @@ export function updateCollectionQuery({collection, query}) {
 }
 
 export default {
+    createModel,
     deleteModel,
     editModel,
     fetchCollection,
