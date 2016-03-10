@@ -4,11 +4,18 @@ import {Input} from "react-bootstrap";
 
 
 class SearchBox extends React.Component {
+    constructor(props) {
+        super(props);
+        const {collection} = props;
+        this.state = {query: collection.get("query")};
+    }
+
     handleClear = () => {
         const {actions, collection, params} = this.props;
         const {router} = this.context;
+        let {query} = this.state;
 
-        const query = collection.get("query").withMutations((map) => {
+        query = query.withMutations((map) => {
             map.set("page", 1);
             map.set("search", "");
         });
@@ -20,23 +27,24 @@ class SearchBox extends React.Component {
     handleSubmit = (evnt) => {
         const {actions, collection, params} = this.props;
         const {router} = this.context;
-        const query = collection.get("query").set("page", 1);
+        let {query} = this.state;
 
+        query = query.set("page", 1);
         evnt.preventDefault();
         actions.fetchCollection({collection, query});
         router.replace(collection.appUrl(params));
     };
 
     handleChange = (evnt) => {
-        const {actions, collection} = this.props;
-        const query = collection.get("query").set("search", evnt.target.value);
-
-        actions.updateCollectionQuery({collection, query});
+        let {query} = this.state;
+        query = query.set("search", evnt.target.value);
+        this.setState({query});
     };
 
     render() {
-        const {autoFocus = false, collection} = this.props;
-        const search = collection.query.get("search");
+        const {autoFocus = false} = this.props;
+        const {query} = this.state;
+        const search = query.get("search");
 
         const submitButton = classnames({
             "btn": true,
