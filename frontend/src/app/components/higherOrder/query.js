@@ -20,7 +20,6 @@ export default (Component) => {
             const query = nextProps.collection.get("query");
 
             if(props.collection.get("query") !== query) {
-                console.log("query box new props");
                 this.setState({query});
             }
         }

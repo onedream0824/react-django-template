@@ -14,7 +14,6 @@ class SearchBox extends React.Component {
         const query = nextProps.collection.get("query");
 
         if(props.collection.get("query") !== query) {
-            console.log("search box new props");
             this.setState({query});
         }
     }
