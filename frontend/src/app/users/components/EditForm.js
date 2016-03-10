@@ -1,11 +1,11 @@
 import React from "react";
 import {Input} from "react-bootstrap";
 
-import editForm from "app/components/higherOrder/editForm";
+import edit from "app/components/higherOrder/edit";
 import hasPermission from "app/components/higherOrder/hasPermission";
 
 
-class EditForm extends React.Component {
+class Form extends React.Component {
     render() {
         const {changeSet, handleChange, handleSubmit} = this.props;
 
@@ -49,4 +49,4 @@ class EditForm extends React.Component {
     }
 }
 
-export default hasPermission(editForm(EditForm), "users.change_emailuser");
+export default hasPermission(edit(Form), "users.change_emailuser");
