@@ -4,7 +4,7 @@ import {createSelector} from "reselect";
 
 import actions from "app/actions/collection";
 import Container from "app/components/list/Container";
-import FilterForm from "app/users/components/list/FilterForm";
+import FilterForm from "app/users/components/FilterForm";
 
 
 const selector = createSelector(

@@ -5,9 +5,9 @@ import {createSelector} from "reselect";
 
 import actions from "app/actions/collection";
 import DeleteButton from "app/components/DeleteButton";
-import EditForm from "app/users/components/detail/EditForm";
+import EditForm from "app/users/components/EditForm";
 import findModel from "app/components/higherOrder/findModel";
-import Model from "app/users/components/detail/Model";
+import Model from "app/users/components/Model";
 
 
 class Container extends React.Component {
