@@ -5,7 +5,6 @@ import {createSelector} from "reselect";
 
 import actions from "app/actions/collection";
 import DeleteButton from "app/components/DeleteButton";
-import EditButton from "app/components/EditButton";
 import EditForm from "app/users/components/detail/EditForm";
 import findModel from "app/components/higherOrder/findModel";
 import Model from "app/users/components/detail/Model";
@@ -21,11 +20,7 @@ class Container extends React.Component {
                         {...this.props}
                         permission="users.delete_emailuser"
                     />
-                    <EditButton
-                        {...this.props}
-                        permission="users.change_emailuser"
-                        EditForm={EditForm}
-                    />
+                    <EditForm {...this.props}/>
                 </div>
             </div>
         );

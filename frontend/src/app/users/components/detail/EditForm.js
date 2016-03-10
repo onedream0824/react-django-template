@@ -48,4 +48,4 @@ class EditForm extends React.Component {
     }
 }
 
-export default editForm(EditForm);
+export default editForm(EditForm, "users.change_emailuser");
