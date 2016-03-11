@@ -23,7 +23,6 @@ cd $project_name
 1. Follow [frontend/README.md](frontend/README.md)
 
 ## TODO
-1. Build the create for the Users app
 1. Build production configs
 
 ## Screenshot
