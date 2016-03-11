@@ -5,7 +5,7 @@ import classnames from "classnames";
 class ControlSidebar extends React.Component {
     render() {
         const {adminlte, children} = this.props;
-        const className = classnames(adminlte.controlSidebar.get("classNames"));
+        const className = classnames(adminlte.controlSidebar.get("classNames").toJS());
 
         return (
             <div>

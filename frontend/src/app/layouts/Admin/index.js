@@ -3,7 +3,7 @@ import actions from "adminlte/actions";
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import {bindActionCreators} from "redux";
-import {Content, ContentWrapper, Wrapper} from "adminlte";
+import {Content, ContentWrapper, ControlSidebar, Wrapper} from "adminlte";
 
 import MainFooter from "./MainFooter";
 import MainSidebar from "./MainSidebar";
@@ -31,6 +31,7 @@ class Admin extends React.Component {
                     </Content>
                 </ContentWrapper>
                 <MainFooter/>
+                <ControlSidebar adminlte={adminlte}/>
             </Wrapper>
         );
     }
