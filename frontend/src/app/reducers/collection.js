@@ -7,16 +7,6 @@ function reducer(state, action, constants) {
     case constants.COLLECTION_IS_LOADING:
         return state.set("isLoading", true);
 
-    case constants.EDIT_MODEL:
-        return state.withMutations((collection) => {
-            const {changeSet, model} = action;
-
-            collection.setIn(
-                ["models", model.id.toString(), "changeSet"],
-                changeSet
-            );
-        });
-
     case constants.RECEIVED_COLLECTION:
         return state.withMutations((collection) => {
             const Model = collection.get("Model");

@@ -36,15 +36,6 @@ function removedModel(model) {
     };
 }
 
-export function editModel({model, changeSet}) {
-    const constants = model.get("constants");
-    return {
-        changeSet,
-        model,
-        type: constants.EDIT_MODEL
-    };
-}
-
 export function saveModel({model, successCb = List(), errorCb = List(), changeSet}) {
     return (dispatch) => {
         successCb = successCb.concat(
@@ -145,7 +136,6 @@ export function updateCollectionQuery({collection, query}) {
 export default {
     createModel,
     deleteModel,
-    editModel,
     fetchCollection,
     fetchCollectionIfEmpty,
     fetchModel,
