@@ -81,6 +81,11 @@ class EmailUser(AbstractBaseUser, PermissionsMixin):
     def __unicode__(self):
         return self.email
 
+    def get_short_name(self):
+        return '{first_name}'.format(
+            first_name=self.first_name
+        )
+
     def get_full_name(self):
         return '{first_name} {last_name}'.format(
             first_name=self.first_name,
