@@ -12,7 +12,7 @@
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.7.0",
+    "babel-core": "^6.7.4",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.0-beta1",
@@ -47,12 +47,12 @@
     "react": "0.14.7",
     "react-bootstrap": "^0.28.3",
     "react-dom": "0.14.7",
-    "react-redux": "^4.4.0",
+    "react-redux": "^4.4.1",
     "react-router": "^2.0.1",
     "redux": "^3.3.1",
     "redux-logger": "^2.6.1",
-    "redux-thunk": "^1.0.3",
-    "reselect": "^2.0.3",
-    "superagent": "^1.8.0"
+    "redux-thunk": "^2.0.1",
+    "reselect": "^2.2.1",
+    "superagent": "^1.8.2"
   }
 }
