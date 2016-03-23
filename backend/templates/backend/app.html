@@ -21,12 +21,14 @@
         window.django = {
             csrf: "{{ csrf_token }}",
             urls: {
+                logout: "{% url "logout" %}",
                 staticRoot: "{% static "" %}",
                 users: "{% url "emailuser-list" %}"
             },
             user: {
                 username: "{{ request.user.username }}",
                 full_name: "{{ request.user.get_full_name }}",
+                last_login: "{{ request.user.last_login }}",
                 permissions: immutable.Set(
                     {% autoescape off %}JSON.parse('{{ permissions }}'){% endautoescape %}
                 )

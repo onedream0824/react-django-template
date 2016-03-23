@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import classNames from "classnames";
 
 
@@ -34,8 +35,8 @@ class UserMenu extends React.Component {
                             className="img-circle" alt="User Image" />
 
                         <p>
-                          Alexander Pierce - Web Developer
-                          <small>Member since Nov. 2012</small>
+                            {window.django.user.full_name}
+                            <small>Last Login {window.django.user.last_login}</small>
                         </p>
                     </li>
 
@@ -61,7 +62,8 @@ class UserMenu extends React.Component {
                         </div>
 
                         <div className="pull-right">
-                            <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                            <a href={window.django.urls.logout}
+                            className="btn btn-default btn-flat">Sign out</a>
                         </div>
                     </li>
                 </ul>
